@@ -22,6 +22,8 @@ spec:
           value: DATABASE_airtime-mtn
         - name: DB_HOST
           value: 172.16.10.2
+        - name: GITHUB_KEY
+          value: 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
         - name: DB_CONNECTION
           value: prod-app-base-060623:europe-west4:prod-app-base-pgsql-060623
         - name: DB_PASSWORD

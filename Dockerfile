@@ -39,6 +39,21 @@ RUN apt-get update && apt-get install -y \
     && pecl install amqp \
     && docker-php-ext-enable amqp
 
+#Microsoft Drivers for PHP for SQL Server: https://github.com/Microsoft/msphpsql
+# Install selected extensions and other stuff
+RUN apt-get update \
+    && apt-get -y --no-install-recommends install apt-utils libxml2-dev gnupg apt-transport-https \
+    && apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
+
+ENV ACCEPT_EULA=Y
+
+RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - \
+    && curl https://packages.microsoft.com/config/debian/9/prod.list > /etc/apt/sources.list.d/mssql-release.list \
+    && apt-get update 
+
+
+#RUN docker-php-ext-install mcrypt && docker-php-ext-enable mcrypt
+
 RUN docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/ && \
     docker-php-ext-install -j$(nproc) gd && docker-php-ext-install gd &&  docker-php-ext-install -j$(nproc) intl && \
     docker-php-ext-install zip && docker-php-ext-enable zip && \ 
@@ -57,20 +72,30 @@ RUN chown -R www-data:www-data  /var/www/
 RUN chmod -R 777 /var/www/html/
 
 # Copy code to /var/www/html
-COPY  ./code /var/www/html/
+COPY  . /var/www/html/
+
+# Remove Dockerfile and Jenkinsfile 
+RUN rm -f Dockerfile Jenkinsfile *.lock
 
 # Copy nginx/php/supervisor configs
-RUN cp ./config/supervisor.conf /etc/supervisord.conf
-RUN cp ./config/php.ini /usr/local/etc/php/conf.d/app.ini
-RUN cp ./config/php.ini /usr/local/etc/php/php.ini
-RUN cp ./config/nginx.conf /etc/nginx/sites-enabled/default
+RUN cp supervisor.conf /etc/supervisord.conf
+RUN cp php.ini /usr/local/etc/php/conf.d/app.ini
+RUN cp php.ini /usr/local/etc/php/php.ini
+RUN cp nginx.conf /etc/nginx/sites-enabled/default
 
 # PHP Error Log Files
-RUN mkdir /var/log/php && touch /var/log/php/errors.log && chmod 777 /var/log/php/errors.log
+RUN mkdir /var/log/php
+RUN touch /var/log/php/errors.log && chmod 777 /var/log/php/errors.log
 
 RUN composer config github-oauth.github.com $GITHUB_KEY
-#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
-RUN chmod +x /var/www/html/config/run.sh
+
+
+RUN chmod -R 777 /var/www/html/
+
+RUN chmod +x /var/www/html/run.sh
 
 EXPOSE 80
-ENTRYPOINT ["/var/www/html/config/run.sh"]
+ENTRYPOINT ["/var/www/html/run.sh"]
+
+
+#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
