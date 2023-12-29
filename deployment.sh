@@ -5,6 +5,3 @@ sed -e 's/NAME/'$1'/g'  -e 's/ENVIRONMENT/'$3'/g' ./overlay/kustomization.yaml >
 
 sed -e 's/NAME/'$1'/g'  -e 's/ENVIRONMENT/'$3'/g' ./cloudbuild.yaml > ./cloudbuild.txt && mv ./cloudbuild.txt ./cloudbuild.yaml
 sed -e 's/NAME/'$1'/g'  -e 's/ENVIRONMENT/'$3'/g' ./skaffold.yaml > ./skaffold.txt && mv ./skaffold.txt ./skaffold.yaml
-
-
-#secret:prod-app-base-060623-prod-app-base-pgsql-060623-cyclos_cr_dev-password
