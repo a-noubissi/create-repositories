@@ -1,0 +1,35 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: NAME
+spec:
+  template:
+    metadata:
+      annotations:
+        run.googleapis.com/secrets: SECRET:projects/prod-secret-060623/secrets/SECRET
+        autoscaling.knative.dev/minScale: '0'
+        autoscaling.knative.dev/maxScale: '1'
+    spec:
+      containers:
+      - image: gcr.io/bootstrap-cicd-060623/NAME:latest-dev
+        ports:
+        - name: http1
+          containerPort: 8080
+        env:
+        - name: DB_USER
+          value: DATABASE_USER
+        - name: DB_NAME
+          value: DATABASE_NAME
+        - name: DB_HOST
+          value: 172.16.10.2
+        - name: DB_CONNECTION
+          value: prod-app-base-060623:europe-west4:prod-app-base-pgsql-060623
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: latest
+              name: SECRET
+        resources:
+          limits:
+            cpu: 2000m
+            memory: 4000Mi

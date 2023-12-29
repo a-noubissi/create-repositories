@@ -1,0 +1,38 @@
+steps:
+  - name: 'gcr.io/k8s-skaffold/skaffold:v2.1.0'
+    args:
+      [
+      'skaffold','build', '--interactive=false', '--file-output=/workspace/artifacts.json'
+      ]
+    env:
+    - 'ENV=latest-ENVIRONMENT'
+    id: Build and package app
+  - name: 'gcr.io/bootstrap-cicd-060623/binauthz-attestation:latest'
+    args:
+      - '--artifact-url'
+      - 'gcr.io/bootstrap-cicd-060623/NAME:latest-ENVIRONMENT'
+      - '--attestor'
+      - 'binauth-attestor'
+      - '--attestor-project'
+      - 'prod-app-base-060623'
+      - '--keyversion'
+      - '1'
+      - '--keyversion-project'
+      - 'prod-app-base-060623'
+      - '--keyversion-location'
+      - 'europe-west4'
+      - '--keyversion-keyring'
+      - 'binauth-keyring'
+      - '--keyversion-key'
+      - 'binauth-key'
+      - '--keyversion'
+      - '1'
+  - name: 'gcr.io/k8s-skaffold/skaffold:v2.1.0'
+    entrypoint: 'bash'
+    args:
+    - '-c'
+    - |
+            skaffold run -p ENVIRONMENT
+    id: Deploy to Cloud Run to ENVIRONMENT Environment
+images: 
+- 'gcr.io/bootstrap-cicd-060623/NAME:latest-ENVIRONMENT'

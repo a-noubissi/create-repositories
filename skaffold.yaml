@@ -1,0 +1,24 @@
+apiVersion: skaffold/v3alpha1
+kind: Config
+metadata: 
+  name: NAME
+build:
+  tagPolicy:
+    envTemplate:
+      template: "{{.ENV}}"
+  artifacts:
+  - image: gcr.io/bootstrap-cicd-060623/NAME
+  googleCloudBuild:
+    projectId: bootstrap-cicd-060623
+profiles:
+- name: ENVIRONMENT
+  activation:
+    - env: ENV=ENVIRONMENT
+  manifests:
+    kustomize:
+      paths: 
+      - overlay/
+deploy:
+  cloudrun:
+    projectid: prod-app-base-060623
+    region: europe-west4

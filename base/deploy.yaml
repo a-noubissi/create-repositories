@@ -1,0 +1,22 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: NAME
+  annotations:
+    run.googleapis.com/ingress: internal-and-cloud-load-balancing
+    run.googleapis.com/binary-authorization: default
+spec:
+  template:
+    metadata:
+      annotations:
+        run.googleapis.com/sessionAffinity: 'true'
+        run.googleapis.com/vpc-access-egress: all-traffic
+        run.googleapis.com/execution-environment: gen2
+        run.googleapis.com/vpc-access-connector: projects/prod-host-base-060623/locations/europe-west4/connectors/base-conn-europe-west4
+        run.googleapis.com/cloudsql-instances: prod-app-base-060623:europe-west4:prod-app-base-pgsql-060623
+        run.googleapis.com/startup-cpu-boost: 'true'
+    spec:
+      serviceAccountName: cloudrun-sa@prod-app-base-060623.iam.gserviceaccount.com
+  traffic:
+  - percent: 100
+    latestRevision: true
