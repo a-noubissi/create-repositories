@@ -87,7 +87,7 @@ RUN cp ./config/nginx.conf /etc/nginx/sites-enabled/default
 RUN mkdir /var/log/php
 RUN touch /var/log/php/errors.log && chmod 777 /var/log/php/errors.log
 
-RUN composer config github-oauth.github.com $GITHUB_KEY
+RUN cd ./code && composer config github-oauth.github.com $GITHUB_KEY
 
 
 RUN chmod -R 777 /var/www/html/
