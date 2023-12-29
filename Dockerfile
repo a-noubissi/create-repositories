@@ -78,10 +78,10 @@ COPY  . /var/www/html/
 RUN rm -f Dockerfile Jenkinsfile *.lock
 
 # Copy nginx/php/supervisor configs
-RUN cp supervisor.conf /etc/supervisord.conf
-RUN cp php.ini /usr/local/etc/php/conf.d/app.ini
-RUN cp php.ini /usr/local/etc/php/php.ini
-RUN cp nginx.conf /etc/nginx/sites-enabled/default
+RUN cp ./config/supervisor.conf /etc/supervisord.conf
+RUN cp ./config/php.ini /usr/local/etc/php/conf.d/app.ini
+RUN cp ./config/php.ini /usr/local/etc/php/php.ini
+RUN cp ./config/nginx.conf /etc/nginx/sites-enabled/default
 
 # PHP Error Log Files
 RUN mkdir /var/log/php
@@ -92,10 +92,10 @@ RUN composer config github-oauth.github.com $GITHUB_KEY
 
 RUN chmod -R 777 /var/www/html/
 
-RUN chmod +x /var/www/html/run.sh
+RUN chmod +x /var/www/html/config/run.sh
 
 EXPOSE 80
-ENTRYPOINT ["/var/www/html/run.sh"]
+ENTRYPOINT ["/var/www/html/config/run.sh"]
 
 
 #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
