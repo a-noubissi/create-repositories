@@ -1,0 +1,37 @@
+configuration:
+    CURLOPT_URL: '%env(ACCOUNT_TRANSACTION_PAYMENT_API)%'
+    CURLOPT_RETURNTRANSFER: true
+    CURLOPT_ENCODING: ''
+    CURLOPT_HTTP_VERSION: CURL_HTTP_VERSION_1_1
+    CURLOPT_MAXREDIRS: 10
+    CURLOPT_TIMEOUT: 60
+    CURLOPT_FOLLOWLOCATION: true
+    CURLOPT_CUSTOMREQUEST: 'POST'
+
+xml_configuration:
+    root_element: null
+
+wsdl_configuration:
+    url: null
+    service: null
+    error_empty_response_message: 'response is empty'
+    error_empty_response_code: 500
+
+body_type:
+    request: json
+    response: json
+
+error_filter:
+    500: ignore
+    401: Afrikpay\SymfonyThirdpartyAdapter\Exception\Transaction\TransactionUnauthorizedAccessException
+    403: ignore
+    405: Afrikpay\SymfonyThirdpartyAdapter\Exception\Transaction\TransactionServiceUnavailableException
+    4XX: Afrikpay\SymfonyThirdpartyAdapter\Exception\Transaction\PaymentTransactionNetworkException
+    5XX: Afrikpay\SymfonyThirdpartyAdapter\Exception\Transaction\PaymentTransactionNetworkException
+
+
+accept_empty_value: false
+
+security:
+    type: Basic
+    auth: null

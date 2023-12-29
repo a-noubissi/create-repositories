@@ -1,0 +1,23 @@
+responses:
+  # Success Responses
+  -
+    providerId:
+    providerStatus:
+  -
+    providerId:
+    providerStatus:
+
+  -
+    providerMessage:
+    errorMessage:
+    providerStatus:
+  -
+    providerMessage:
+    errorMessage:
+    providerStatus:
+
+
+
+decision_values:
+  providerId:
+  providerStatus:

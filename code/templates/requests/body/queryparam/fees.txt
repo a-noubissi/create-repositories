@@ -1,0 +1,1 @@
+merchantid=1111111111111111&transactiontype={{transactionType}}&amount={{amount}}&client1={{accountNumber}}&agentid={{accountNumber}}&currency=952

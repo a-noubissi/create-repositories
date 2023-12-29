@@ -1,0 +1,9 @@
+{
+  "externalTransactionId": "{{transactionId}}",
+  "money":
+  {"amount": "{{amount}}",
+    "currency": "%env(CURRENCY)%"
+  },
+  "customerReference": "{{referenceNumber}}",
+  "serviceProviderUserName": "%env(SERVICE_PROVIDER_USERNAME)%"
+}

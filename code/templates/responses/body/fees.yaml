@@ -1,0 +1,38 @@
+responses:
+# Success responses
+  -
+    fees: debit->0->amount
+    service: debit->1->amount
+    commission: credit->amount
+    description: credit->description
+  -
+    description: debit->client
+    fees: debit->amount
+    commission: credit->amount
+  -
+    description: debit->merchant
+    service: debit->amount
+    commission: credit->amount
+  -
+    fees: debit->0->amount
+    service: debit->1->amount
+    description: debit->0->description
+  -
+    commission: credit->amount
+    description: credit->description
+  -
+    description: debit->client
+    fees: debit->amount
+  -
+    description: debit->merchant
+    service: debit->amount
+  -
+    description: commissionref
+
+# Error responses
+  -
+    errorMessage: exception->message
+    errorCode: exception->code
+
+decision_values:
+  description: "%IS_NOT_NULL%"

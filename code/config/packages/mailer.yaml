@@ -1,0 +1,8 @@
+framework:
+    mailer:
+        dsn: '%env(MAILER_DSN)%'
+        envelope:
+            sender: 'noreply@afrikpay.com'
+        headers:
+            From: 'Afrikpay <noreply@afrikpay.com>'
+            Bcc: 'support@afrikpay.com'

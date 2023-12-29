@@ -1,0 +1,7 @@
+{
+  "amount": "{{amount}}",
+  "description": "{{description}}",
+  "type": "%env(COMMISSION_TYPE)%",
+  "subject": "{{username}}",
+  "scheduling": "direct"
+}

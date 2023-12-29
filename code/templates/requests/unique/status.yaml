@@ -1,0 +1,6 @@
+attributes:
+  - transactionId
+  - requestId
+  - externalId
+  - financialId
+  - providerId

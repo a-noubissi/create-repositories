@@ -1,0 +1,18 @@
+responses:
+# Success Responses
+  -
+    providerCode:
+    providerMessage:
+    name:
+    amount:
+
+# Error Responses
+  -
+    errorMessage:
+    errorCode:
+    providerCode:
+    providerMessage:
+
+decision_values:
+  providerCode:
+  providerMessage:

@@ -1,0 +1,25 @@
+responses:
+# Success Responses
+  -
+    rollbackId: text
+
+# Error responses
+  -
+    errorMessage: missingLoginConfirmationCredentials->0
+  -
+    errorMessage: missingLoginConfirmationPasswordType->name
+  -
+    errorMessage: invalidDeviceConfirmation
+  -
+    errorMessage: code
+  -
+    errorMessage: error
+  -
+    errorMessage: entityType
+  -
+    errorMessage: smsStatus
+  -
+    errorMessage: exceptionMessage
+
+decision_values:
+  rollbackId: "%IS_NOT_NULL%"

@@ -1,0 +1,21 @@
+responses:
+# Success Responses
+    -
+        cost: cost
+        responseMessage: message
+        responseStatus: status
+
+# Error Responses
+    -
+        errorCode: statusCode
+        responseMessage: message
+        responseStatus: status
+        errorMessage: message
+    -
+        responseMessage: message
+        responseStatus: status
+        errorMessage: message
+
+decision_values:
+  responseMessage: "message sent"
+  responseStatus: "success"

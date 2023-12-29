@@ -1,0 +1,4 @@
+referenceNumber: '%env(REFERENCE_REGEX)%'
+phone: '%env(PHONE_REGEX)%'
+requestId: '/./'
+externalId: '/./'

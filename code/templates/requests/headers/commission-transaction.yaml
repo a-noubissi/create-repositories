@@ -1,0 +1,3 @@
+Content-Type: application/json
+Accept: application/json
+confirmationPassword: '%env(ACCOUNT_ADMIN_API_PIN)%'

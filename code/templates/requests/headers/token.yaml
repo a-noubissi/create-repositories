@@ -1,0 +1,4 @@
+Content-Type: application/json
+Authorization: '%env(TOKEN_BASIC_AUTH)%'
+Ocp-Apim-Subscription-Key: '%env(API_KEY)%'
+content-length: 0

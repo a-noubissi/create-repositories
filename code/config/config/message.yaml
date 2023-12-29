@@ -1,0 +1,21 @@
+default-message:
+  fr: "L'adapter {{name}} est actif"
+  en: "Adapter {{name}} is up"
+sms_client:
+  fr: 'Transaction {{appName}} effectuee avec succes. Ref:{{referenceNumber}} , Montant: {{amount}} FCFA, Frais: {{fees}} FCFA'
+  en: 'Transaction {{appName}} has been successfully processed. Ref:{{referenceNumber}} , Amount: {{amount}} XAF, Fees: {{fees}} XAF'
+sms_admin:
+    fr: 'Transaction {{appName}} effectuee avec succes. Reference:{{referenceNumber}} , Montant: {{amount}} FCFA, Frais: {{financialFees}} FCFA'
+    en: 'Transaction {{appName}} has been successfully processed. Ref:{{referenceNumber}} , Amount: {{amount}} XAF, Fees: {{financialFees}} XAF'
+email_client:
+  fr: 'Transaction {{appName}} effectuee avec succes. Compte: {{accountName}}, Reference:{{referenceNumber}}, Montant: {{amount}} FCFA, Frais: {{fees}} FCFA'
+  en: 'Transaction {{appName}} has been successfully processed. Account Name: {{accountName}}, Ref:{{referenceNumber}} , Amount: {{amount}} XAF, Fees: {{fees}} XAF'
+email_admin:
+  fr: 'Transaction {{appName}} effectuee avec succes. Compte: {{accountName}}, Reference:{{referenceNumber}} , Montant: {{amount}} FCFA, Frais: {{financialFees}} FCFA'
+  en: 'Transaction {{appName}} has been successfully processed. Account Name: {{accountName}}, Ref:{{referenceNumber}} , Amount: {{amount}} XAF, Fees: {{financialFees}} XAF'
+payment_email_subject:
+  fr: 'Transaction effectuée avec succès'
+  en: 'Successfully processed transaction'
+payment_description:
+  fr: 'Paiement {{appName}};referenceNumber:{{referenceNumber}};amount:{{amount}};accountName:{{accountName}};financialFees:{{financialFees}};financialCommission:{{financialCommission}};providerFees:{{providerFees}};description:{{description}};externalId:{{externalId}}'
+  en: 'Payment {{appName}};referenceNumber:{{referenceNumber}};amount:{{amount}};accountName:{{name}};financialFees:{{financialFees}};financialCommission:{{financialCommission}};providerFees:{{providerFees}};description:{{description}};externalId:{{externalId}}'

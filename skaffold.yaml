@@ -1,19 +1,19 @@
 apiVersion: skaffold/v3alpha1
 kind: Config
 metadata: 
-  name: NAME
+  name: airtime-mtn
 build:
   tagPolicy:
     envTemplate:
       template: "{{.ENV}}"
   artifacts:
-  - image: gcr.io/bootstrap-cicd-060623/NAME
+  - image: gcr.io/bootstrap-cicd-060623/airtime-mtn
   googleCloudBuild:
     projectId: bootstrap-cicd-060623
 profiles:
-- name: ENVIRONMENT
+- name: qa
   activation:
-    - env: ENV=ENVIRONMENT
+    - env: ENV=qa
   manifests:
     kustomize:
       paths: 

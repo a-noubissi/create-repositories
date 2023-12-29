@@ -1,0 +1,103 @@
+responses:
+  # Success Responses
+  -
+    name: name
+    email: email
+    accountNumber: customValues->2->stringValue
+    phone: phones->0->normalizedNumber
+    group: group->internalName
+    accountStatus: status
+    accountCommissionNumber: permissions->accounts->0->number
+    accountDepositNumber: permissions->accounts->1->number
+  -
+    name: name
+    email: email
+    accountNumber: customValues->2->stringValue
+    phone: phones->0->normalizedNumber
+  -
+    name: name
+    email: email
+    accountNumber: customValues->1->stringValue
+    phone: phones->0->normalizedNumber
+    group: group->internalName
+    accountStatus: status
+    accountCommissionNumber: permissions->accounts->0->number
+    accountDepositNumber: permissions->accounts->1->number
+  -
+    name: name
+    email: email
+    accountNumber: customValues->1->stringValue
+    phone: phones->0->normalizedNumber
+  -
+    name: name
+    email: email
+    accountNumber: customValues->0->stringValue
+    phone: phones->0->normalizedNumber
+    group: group->internalName
+    accountStatus: status
+    accountCommissionNumber: permissions->accounts->0->number
+    accountDepositNumber: permissions->accounts->1->number
+  -
+    name: name
+    email: email
+    accountNumber: customValues->0->stringValue
+    phone: phones->0->normalizedNumber
+  -
+    name: name
+    email: email
+    accountNumber: customValues->2->stringValue
+    group: group->internalName
+    accountStatus: status
+    accountCommissionNumber: permissions->accounts->0->number
+    accountDepositNumber: permissions->accounts->1->number
+  -
+    name: name
+    email: email
+    accountNumber: customValues->2->stringValue
+  -
+    name: name
+    email: email
+    accountNumber: customValues->1->stringValue
+    group: group->internalName
+    accountStatus: status
+    accountCommissionNumber: permissions->accounts->0->number
+    accountDepositNumber: permissions->accounts->1->number
+  -
+    name: name
+    email: email
+    accountNumber: customValues->1->stringValue
+  -
+    name: name
+    email: email
+    accountNumber: customValues->0->stringValue
+    group: group->internalName
+    accountStatus: status
+    accountCommissionNumber: permissions->accounts->0->number
+    accountDepositNumber: permissions->accounts->1->number
+  -
+    name: name
+    email: email
+    accountNumber: customValues->0->stringValue
+
+
+  # Error responses
+  -
+    errorMessage: missingLoginConfirmationCredentials->0
+  -
+    errorMessage: missingLoginConfirmationPasswordType->name
+  -
+    errorMessage: invalidDeviceConfirmation
+  -
+    errorMessage: code
+  -
+    errorMessage: error
+  -
+    errorMessage: entityType
+  -
+    errorMessage: smsStatus
+  -
+    errorMessage: exceptionMessage
+
+decision_values:
+  name: "%IS_NOT_NULL%"
+  email: "%IS_NOT_NULL%"

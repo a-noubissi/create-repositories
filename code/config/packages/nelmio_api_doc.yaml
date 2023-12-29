@@ -1,0 +1,24 @@
+nelmio_api_doc:
+    documentation:
+        info:
+            title: MTN Airtime Adapter
+            description: This is the documentation of MTN Airtime adapter!
+            version: 1.0.0
+        components:
+            securitySchemes:
+                Bearer:
+                    type: http
+                    scheme: bearer
+                    name: Bearer
+                    description: Specify only the JWT token
+                Basic:
+                    type: http
+                    scheme: basic
+                    name: Basic
+                    description: Specify API username and password
+        security:
+            - Bearer: [ ]
+            - Basic: [ ]
+    areas: # to filter documented areas
+        path_patterns:
+            - ^/api(?!/doc$) # Accepts routes under /api except /api/doc

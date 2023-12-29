@@ -1,0 +1,29 @@
+configuration:
+    CURLOPT_URL: '%env(REFERENCE_API)%'
+    CURLOPT_RETURNTRANSFER: true
+    CURLOPT_ENCODING: ''
+    CURLOPT_HTTP_VERSION: CURL_HTTP_VERSION_1_1
+    CURLOPT_MAXREDIRS: 10
+    CURLOPT_TIMEOUT: '%env(REFERENCE_TIME_OUT)%'
+    CURLOPT_FOLLOWLOCATION: true
+    CURLOPT_CUSTOMREQUEST: 'GET'
+
+xml_configuration:
+    root_element: null
+
+wsdl_configuration:
+    url: null
+    service: null
+    error_empty_response_message: 'response is empty'
+    error_empty_response_code: 500
+
+body_type:
+    request: queryparam
+    response: json
+
+error_filter:
+    4XX: Afrikpay\SymfonyThirdpartyAdapter\Exception\Reference\ReferenceNetworkException
+    5XX: Afrikpay\SymfonyThirdpartyAdapter\Exception\Reference\ReferenceNetworkException
+    3XX: Afrikpay\SymfonyThirdpartyAdapter\Exception\Reference\ReferenceNetworkException
+
+accept_empty_value: false

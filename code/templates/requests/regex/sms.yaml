@@ -1,0 +1,1 @@
+phone: '%env(SMS_PHONE_REGEX)%'

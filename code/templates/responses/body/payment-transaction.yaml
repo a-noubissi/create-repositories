@@ -1,0 +1,25 @@
+responses:
+# Success Responses
+  -
+    financialId: transactionNumber
+
+# Error responses
+  -
+    errorMessage: code
+  -
+    errorMessage: missingLoginConfirmationCredentials->0
+  -
+    errorMessage: missingLoginConfirmationPasswordType->name
+  -
+    errorMessage: invalidDeviceConfirmation
+  -
+    errorMessage: error
+  -
+    errorMessage: entityType
+  -
+    errorMessage: smsStatus
+  -
+    errorMessage: exceptionMessage
+
+decision_values:
+  financialId: "%IS_NOT_NULL%"

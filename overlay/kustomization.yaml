@@ -3,9 +3,9 @@ kind: Kustomization
 bases:
 - ../base
 images:
-- name: gcr.io/bootstrap-cicd-060623/NAME
-  newName: gcr.io/bootstrap-cicd-060623/NAME
-  newTag: latest-ENVIRONMENT
-nameSuffix: -ENVIRONMENT
+- name: gcr.io/bootstrap-cicd-060623/airtime-mtn
+  newName: gcr.io/bootstrap-cicd-060623/airtime-mtn
+  newTag: latest-qa
+nameSuffix: -qa
 patchesStrategicMerge:
 - deploy.yaml

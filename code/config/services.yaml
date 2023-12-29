@@ -1,0 +1,97 @@
+# This file is the entry point to configure your own services.
+# Files in the packages/ subdirectory configure your dependencies.
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
+parameters:
+    APP_ENV: '%env(APP_ENV)%'
+    APP_SENDER: '%env(APP_SENDER)%'
+    APP_NAME: '%env(APP_NAME)%'
+    DEFAULT_LANGUAGE: '%env(DEFAULT_LANGUAGE)%'
+    MAILER_DSN: '%env(MAILER_DSN)%'
+    MAIL_IDLE: '%env(MAIL_IDLE)%'
+    SMS_IDLE: '%env(SMS_IDLE)%'
+    REF_IDLE: '%env(REF_IDLE)%'
+    TRX_IDLE: '%env(TRX_IDLE)%'
+    PAYMENT_IDLE: '%env(PAYMENT_IDLE)%'
+    STATUS_IDLE: '%env(STATUS_IDLE)%'
+    TOKEN_IDLE: '%env(STATUS_IDLE)%'
+    FEES_IDLE: '%env(FEES_IDLE)%'
+    ACCOUNT_IDLE: '%env(ACCOUNT_IDLE)%'
+    SMS_API_KEY: '%env(SMS_API_KEY)%'
+    SMS_API_PASSWORD: '%env(SMS_API_PASSWORD)%'
+    REFERENCE_REGEX: '%env(REFERENCE_REGEX)%'
+    SMS_PHONE_REGEX: '%env(SMS_PHONE_REGEX)%'
+    PHONE_REGEX: '%env(PHONE_REGEX)%'
+    API_USERNAME_TOKEN: '%env(API_USERNAME_TOKEN)%'
+    API_PASSWORD_TOKEN: '%env(API_PASSWORD_TOKEN)%'
+    VERIFY_REFERENCE: '%env(VERIFY_REFERENCE)%'
+    AMOUNT_MIN: '%env(AMOUNT_MIN)%'
+    AMOUNT_MAX: '%env(AMOUNT_MAX)%'
+    REAL_NAME: '%env(REAL_NAME)%'
+    ACCOUNT_ADMIN_API_USERNAME: '%env(ACCOUNT_ADMIN_API_USERNAME)%'
+    ACCOUNT_ADMIN_API_PASSWORD: '%env(ACCOUNT_ADMIN_API_PASSWORD)%'
+    ACCOUNT_ADMIN_API_PIN: '%env(ACCOUNT_ADMIN_API_PIN)%'
+    SMS_API: '%env(SMS_API)%'
+    FEES_API: '%env(FEES_API)%'
+    TOKEN_API: '%env(TOKEN_API)%'
+    REFERENCE_API: '%env(REFERENCE_API)%'
+    TRANSACTION_API: '%env(TRANSACTION_API)%'
+    STATUS_API: '%env(STATUS_API)%'
+    ACCOUNT_INFO_API: '%env(ACCOUNT_INFO_API)%'
+    ACCOUNT_TRANSACTION_PAYMENT_API: '%env(ACCOUNT_TRANSACTION_PAYMENT_API)%'
+    ACCOUNT_TRANSACTION_CHARGE_BACK_API: '%env(ACCOUNT_TRANSACTION_CHARGE_BACK_API)%'
+    REFERENCE_API_ENABLED: '%env(REFERENCE_API_ENABLED)%'
+    TRANSACTION_API_ENABLED: '%env(TRANSACTION_API_ENABLED)%'
+    STATUS_API_ENABLED: '%env(STATUS_API_ENABLED)%'
+    MAIL_API_ENABLED: '%env(MAIL_API_ENABLED)%'
+    SMS_API_ENABLED: '%env(SMS_API_ENABLED)%'
+    ACCOUNT_API_ENABLED: '%env(ACCOUNT_API_ENABLED)%'
+    TOKEN_API_ENABLED: '%env(TOKEN_API_ENABLED)%'
+    FEES_API_ENABLED: '%env(FEES_API_ENABLED)%'
+    PAYMENT_TYPE: '%env(PAYMENT_TYPE)%'
+    COMMISSION_TYPE: '%env(COMMISSION_TYPE)%'
+    OPTION_API_ENABLED: '%env(OPTION_API_ENABLED)%'
+    SEND_CLIENT_SMS: '%env(SEND_CLIENT_SMS)%'
+    SEND_CLIENT_EMAIL: '%env(SEND_CLIENT_EMAIL)%'
+    ADMIN_SMS: '%env(ADMIN_SMS)%'
+    ADMIN_EMAIL: '%env(ADMIN_EMAIL)%'
+    PAY_UNIQUE_REFERENCE: '%env(PAY_UNIQUE_REFERENCE)%'
+    SMS_CHANNEL: '%env(SMS_CHANNEL)%'
+    TRANSACTION_ASYNC: '%env(TRANSACTION_ASYNC)%'
+    TRX_RETRY_TIME: '%env(TRX_RETRY_TIME)%'
+    TRX_MAX_EXECUTION_TIME: '%env(TRX_MAX_EXECUTION_TIME)%'
+    TRX_TIME_OUT: '%env(TRX_TIME_OUT)%'
+    REFERENCE_TIME_OUT: '%env(REFERENCE_TIME_OUT)%'
+    STATUS_TIME_OUT: '%env(STATUS_TIME_OUT)%'
+    BALANCE: '%env(BALANCE)%'
+    AMOUNT_REQUIRED: '%env(AMOUNT_REQUIRED)%'
+    TOKEN_BASIC_AUTH: '%env(TOKEN_BASIC_AUTH)%'
+    API_KEY: '%env(API_KEY)%'
+    TARGET_ENVIRONMENT: '%env(TARGET_ENVIRONMENT)%'
+    CURRENCY: '%env(CURRENCY)%'
+    SERVICE_PROVIDER_USERNAME: '%env(SERVICE_PROVIDER_USERNAME)%'
+    TRX_CHECK_STATUS: '%env(TRX_CHECK_STATUS)%'
+    RETRY_TRANSACTION: '%env(RETRY_TRANSACTION)%'
+
+services:
+    # default configuration for services in *this* file
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+    # makes classes in src/ available to be used as services
+    # this creates a service per class whose id is the fully-qualified class name
+    App\:
+        resource: '../src/'
+        exclude:
+            - '../../DependencyInjection/'
+            - '../../Entity/'
+            - '../../Exception/'
+            - '../../Collection/'
+            - '../../Model/'
+            - '../../Dto/'
+            - '../../Kernel.php'
+
+    # add more service definitions when explicit configuration is needed
+    # please note that last definitions always *replace* previous ones

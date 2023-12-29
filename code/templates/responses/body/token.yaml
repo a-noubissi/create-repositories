@@ -1,0 +1,12 @@
+responses:
+# Success Responses
+  -
+    token: access_token
+
+# Error Responses
+  -
+    errorMessage: message
+    errorCode: code
+
+decision_values:
+  token: "%IS_NOT_NULL%"

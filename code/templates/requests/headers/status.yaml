@@ -1,0 +1,3 @@
+Content-Type: application/json
+Ocp-Apim-Subscription-Key: '%env(API_KEY)%'
+X-Target-Environment: '%env(TARGET_ENVIRONMENT)%'

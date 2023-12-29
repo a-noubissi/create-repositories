@@ -3,3 +3,5 @@ README.md
 deploy.yaml
 skaffold.yaml
 cloudbuild.yaml
+*.lock
+deployment.sh

@@ -1,0 +1,7 @@
+{
+  "amount": "{{amount}}",
+  "description": "{{description}}",
+  "type": "%env(PAYMENT_TYPE)%",
+  "subject": "SYSTEM",
+  "scheduling": "direct"
+}

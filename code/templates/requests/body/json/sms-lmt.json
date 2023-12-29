@@ -1,0 +1,7 @@
+{
+  "api_key": "%env(SMS_API_KEY)%",
+  "password": "%env(SMS_API_PASSWORD)%",
+  "sender": "{{sender}}",
+  "phone": "{{phone}}",
+  "message": "{{message}}"
+}

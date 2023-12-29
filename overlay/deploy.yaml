@@ -1,25 +1,25 @@
 apiVersion: serving.knative.dev/v1
 kind: Service
 metadata:
-  name: NAME
+  name: airtime-mtn
 spec:
   template:
     metadata:
       annotations:
-        run.googleapis.com/secrets: SECRET:projects/prod-secret-060623/secrets/SECRET
+        run.googleapis.com/secrets: prod-app-base-060623-prod-app-base-060623-pgsql-airtime_mtn_cr_qa-password:projects/prod-secret-060623/secrets/prod-app-base-060623-prod-app-base-060623-pgsql-airtime_mtn_cr_qa-password
         autoscaling.knative.dev/minScale: '0'
         autoscaling.knative.dev/maxScale: '1'
     spec:
       containers:
-      - image: gcr.io/bootstrap-cicd-060623/NAME:latest-dev
+      - image: gcr.io/bootstrap-cicd-060623/airtime-mtn:latest-qa
         ports:
         - name: http1
-          containerPort: 8080
+          containerPort: 80
         env:
         - name: DB_USER
-          value: DATABASE_USER
-        - name: DB_NAME
-          value: DATABASE_NAME
+          value: airtime_mtn_qa_user
+        - name: DB_airtime-mtn
+          value: DATABASE_airtime-mtn
         - name: DB_HOST
           value: 172.16.10.2
         - name: DB_CONNECTION
@@ -28,7 +28,7 @@ spec:
           valueFrom:
             secretKeyRef:
               key: latest
-              name: SECRET
+              name: prod-app-base-060623-prod-app-base-060623-pgsql-airtime_mtn_cr_qa-password
         resources:
           limits:
             cpu: 2000m

@@ -1,0 +1,37 @@
+{# templates/bundles/NelmioApiDocBundle/SwaggerUi/index.html.twig #}
+
+{#
+To avoid a "reached nested level" error an exclamation mark `!` has to be added
+See https://symfony.com/blog/new-in-symfony-3-4-improved-the-overriding-of-templates
+#}
+{% extends '@!NelmioApiDoc/SwaggerUi/index.html.twig' %}
+
+
+{#
+Change swagger UI configuration
+All parameters are explained on Swagger UI website:
+https://swagger.io/docs/open-source-tools/swagger-ui/usage/configuration/
+#}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        header:before {
+            content:"";
+            background-color:#fff;
+            height:70px;
+            width:100%;
+            text-align:center;
+            position:fixed;
+            top:0;
+            z-index:100;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        }
+    </style>
+{% endblock stylesheets %}
+
+{% block header %}
+    <a id="logo" href="https://www.afrikpay.com">
+        <img src="https://afrikpay.com/assets/img/logo.png" style="background-color:#fff" alt="Afrikpay Offical Web site">
+    </a>
+{% endblock header %}
