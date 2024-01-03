@@ -33,5 +33,5 @@ spec:
               name: prod-app-base-060623-prod-app-base-060623-pgsql-airtime_mtn_cr_qa-password
         resources:
           limits:
-            cpu: 2000m
+            cpu: 1000m
             memory: 4000Mi

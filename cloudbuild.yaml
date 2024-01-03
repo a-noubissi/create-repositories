@@ -33,6 +33,6 @@ steps:
     - '-c'
     - |
             skaffold run -p qa
-    id: Deploy to Cloud Run to qa Environment
+    id: Deploy to Cloud Run to QA Environment
 images: 
 - 'gcr.io/bootstrap-cicd-060623/airtime-mtn:latest-qa'
